@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <ImageView
+        android:id="@+id/logoImageView"
+        android:layout_width="370dp"
+        android:layout_height="130dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/logo_bumisuksesindo"
+        android:contentDescription="@null"
+        />
+
+    <TextView
+        android:id="@+id/appTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:padding="16dp"
+        android:text="BSI Entry Monitoring System"
+        android:textSize="16sp"
+        android:layout_marginBottom="39dp"
+        android:textColor="#808080"
+        android:gravity="center" />
+
+    <TextView
+        android:id="@+id/appVersion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:padding="16dp"
+        android:text="V 1.0.0"
+        android:textSize="16sp"
+        android:layout_marginBottom="14dp"
+        android:textColor="#808080"
+        android:gravity="center" />
+</RelativeLayout>

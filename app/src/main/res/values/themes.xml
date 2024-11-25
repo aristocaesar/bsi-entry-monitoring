@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.BSIEntryMonitoring" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="Theme.BSIEntryMonitoring" parent="Theme.AppCompat.NoActionBar" />
     <!-- Base application theme. -->
-    <style name="Base.Theme.BSIEntryMonitoring" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Base.Theme.BSIEntryMonitoring" parent="Theme.AppCompat.NoActionBar">
         <item name="android:windowFullscreen">true</item>
         <item name="windowActionBar">false</item>
         <item name="android:fontFamily">@font/poppins</item>

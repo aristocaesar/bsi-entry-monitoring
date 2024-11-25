@@ -1,10 +1,12 @@
 <resources>
-    <string name="app_name">BSI Entry Monitoring</string>
+    <string name="app_name">BSI Entry Monitoring System</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
+
+    <string name="tapping">Tapping</string>
 
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
@@ -42,4 +44,23 @@
         libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
+    <string name="door">DOOR</string>
+    <string name="empty">-</string>
+    <string name="tapping_title_info">Please attach the ID card to the trunstile</string>
+    <string name="copyright">© 2024 PT. Bumi Suksesindo</string>
+    <string name="copyright_team">ICT Team</string>
+    <string name="app_version">V 1.0.0</string>
+    <string name="input_password">Password</string>
+    <string name="input_username">Username</string>
+    <string name="txt_login">Login</string>
+    <string name="login">Login</string>
+    <string name="setting">Setting</string>
+    <string name="server_address">Server Address</string>
+    <string name="input_door_id">Door ID</string>
+    <string name="save">Save</string>
+    <string name="hint_input_password">Type Password</string>
+    <string name="hint_input_username">Type Username</string>
+    <string name="hint_input_server_address">Type Server Address</string>
+    <string name="hint_input_door_id">Type Door ID</string>
+    <string name="welcome">Welcome!</string>
 </resources>

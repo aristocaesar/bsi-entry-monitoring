@@ -16,6 +16,7 @@ class EntryActivity : AppCompatActivity() {
 
         logoImageView.setOnClickListener {
             startActivity(Intent(this, LoginActivity::class.java))
+            finish()
         }
     }
 }

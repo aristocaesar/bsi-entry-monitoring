@@ -5,7 +5,7 @@
     android:background="#FFFFFF">
 
     <ImageView
-        android:id="@+id/logoImageView"
+        android:id="@+id/logo_bumisuksesindo"
         android:layout_width="370dp"
         android:layout_height="130dp"
         android:layout_centerInParent="true"
@@ -20,10 +20,10 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:padding="16dp"
-        android:text="BSI Entry Monitoring System"
+        android:text="@string/app_name"
         android:textSize="16sp"
         android:layout_marginBottom="39dp"
-        android:textColor="#808080"
+        android:textColor="#242424"
         android:gravity="center" />
 
     <TextView
@@ -33,9 +33,9 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:padding="16dp"
-        android:text="V 1.0.0"
+        android:text="@string/app_version"
         android:textSize="16sp"
         android:layout_marginBottom="14dp"
-        android:textColor="#808080"
+        android:textColor="#242424"
         android:gravity="center" />
 </RelativeLayout>

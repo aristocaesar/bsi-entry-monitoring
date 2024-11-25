@@ -1,10 +1,13 @@
 package com.bsi.entrymonitoring
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.ImageView
+import android.widget.TextView
 
 class EntryActivity : AppCompatActivity() {
     private var clickCount = 0
@@ -13,9 +16,16 @@ class EntryActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+
+        val sharedPreferences : SharedPreferences = getSharedPreferences("UserPrefs", Context.MODE_PRIVATE)
+        val doorID = sharedPreferences.getString("doorID", "")
+
         setContentView(R.layout.activity_entry)
 
+        val labelDoorID = findViewById<TextView>(R.id.door_id)
         val logoImageView = findViewById<ImageView>(R.id.logo_bumisuksesindo)
+
+        labelDoorID.text = doorID
 
         logoImageView.setOnClickListener {
             val currentTime = System.currentTimeMillis()

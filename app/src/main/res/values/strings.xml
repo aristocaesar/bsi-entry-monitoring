@@ -63,4 +63,7 @@
     <string name="hint_input_server_address">Type Server Address</string>
     <string name="hint_input_door_id">Type Door ID</string>
     <string name="welcome">Welcome!</string>
+    <string name="cancel">Cancel</string>
+    <string name="default_server_address">test.mosquitto.org</string>
+    <string name="default_door_id">0001</string>
 </resources>

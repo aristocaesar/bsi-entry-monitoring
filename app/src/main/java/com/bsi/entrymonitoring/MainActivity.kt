@@ -1,6 +1,5 @@
 package com.bsi.entrymonitoring
 
-import android.content.Context
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import android.content.Intent

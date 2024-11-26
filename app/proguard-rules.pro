@@ -1,26 +1,21 @@
-# Add project specific ProGuard rules here.
-# You can control the set of applied configuration files using the
-# proguardFiles setting in build.gradle.
-#
-# For more details, see
-#   http://developer.android.com/guide/developing/tools/proguard.html
-
-# If your project uses WebView with JS, uncomment the following
-# and specify the fully qualified class name to the JavaScript interface
-# class:
-#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
-#   public *;
-#}
-
-# Uncomment this to preserve the line number information for
-# debugging stack traces.
-#-keepattributes SourceFile,LineNumberTable
-
-# If you keep the line number information, uncomment this to
-# hide the original source file name.
-#-renamesourcefileattribute SourceFile
-
 -keep class com.bsi.entrymonitoring.MainActivity { *; }
 -keep class com.bsi.entrymonitoring.EntryActivity { *; }
 -keep class com.bsi.entrymonitoring.LoginActivity { *; }
 -keep class com.bsi.entrymonitoring.SettingActivity { *; }
+-keep class com.bsi.entrymonitoring.utils.MqttClientManager { *; }
+-keep class com.bsi.entrymonitoring.model.Employee { *; }
+-keep class com.bsi.entrymonitoring.model.User { *; }
+-keep class com.bsi.entrymonitoring.api.ApiService { *; }
+-keep class com.bsi.entrymonitoring.api.RetrofitClient { *; }
+
+# Keep Retrofit interfaces
+-keep interface retrofit2.* { *; }
+-keepattributes *Annotation*
+-keepattributes Signature
+-keepattributes Exceptions
+-keep class com.google.gson.** { *; }
+-dontwarn com.google.gson.**
+
+# Keep classes and methods for Eclipse Paho MQTT
+-keep class org.eclipse.paho.** { *; }
+-dontwarn org.eclipse.paho.**

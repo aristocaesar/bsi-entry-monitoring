@@ -22,8 +22,8 @@ class SettingActivity : AppCompatActivity() {
         val sharedPreferences = getSharedPreferences("UserPrefs", Context.MODE_PRIVATE)
 
         val isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false)
-        val serverAddress = sharedPreferences.getString("serverAddress", "test.mosquitto.org")
-        val doorID = sharedPreferences.getString("doorID", "0000")
+        val serverAddress = sharedPreferences.getString("serverAddress", "localhost") ?: "localhost"
+        val doorID = sharedPreferences.getString("doorID", "-") ?: "-"
         val username = sharedPreferences.getString("username_mqtt", "")
         val password = sharedPreferences.getString("password_mqtt", "")
 

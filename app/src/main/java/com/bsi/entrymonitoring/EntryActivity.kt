@@ -1,6 +1,7 @@
 package com.bsi.entrymonitoring
 
 import com.bsi.entrymonitoring.utils.MqttClientManager
+import com.bsi.entrymonitoring.utils.NetworkManager
 import android.content.Context
 import android.content.SharedPreferences
 import android.content.Intent
@@ -30,6 +31,10 @@ class EntryActivity : AppCompatActivity() {
         enableEdgeToEdge()
 
         setContentView(R.layout.activity_entry)
+
+        if (!NetworkManager.isNetworkAvailable(this)) {
+            NetworkManager.showNetworkErrorDialog(this)
+        }
 
         val logoImageView = findViewById<ImageView>(R.id.logo_bumisuksesindo)
 

@@ -11,6 +11,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import com.bsi.entrymonitoring.utils.NetworkManager
 
 class SettingActivity : AppCompatActivity() {
     private var isPasswordVisible = false
@@ -73,20 +74,28 @@ class SettingActivity : AppCompatActivity() {
         }
 
         buttonSave.setOnClickListener {
-            with(sharedPreferences.edit()) {
-                putString("serverAddress", editTextServerAddress.text.toString())
-                putString("doorID", editTextDoorID.text.toString())
-                putString("username_mqtt", editTextUsername.text.toString())
-                putString("password_mqtt", editTextPassword.text.toString())
-                apply()
-            }
+            if (!NetworkManager.isNetworkAvailable(this)) {
+                NetworkManager.showNetworkErrorDialog(this)
+            }else {
+                with(sharedPreferences.edit()) {
+                    putString("serverAddress", editTextServerAddress.text.toString())
+                    putString("doorID", editTextDoorID.text.toString())
+                    putString("username_mqtt", editTextUsername.text.toString())
+                    putString("password_mqtt", editTextPassword.text.toString())
+                    apply()
+                }
 
-            val checkServer = true
-            if(!checkServer) {
-                startActivity(Intent(this, EntryActivity::class.java))
-                finish()
-            }else{
-                Toast.makeText(this, "Invalid Configuration, Please Check Again!", Toast.LENGTH_SHORT).show()
+                val checkServer = true
+                if (!checkServer) {
+                    startActivity(Intent(this, EntryActivity::class.java))
+                    finish()
+                } else {
+                    Toast.makeText(
+                        this,
+                        "Invalid Configuration, Please Check Again!",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
             }
         }
     }

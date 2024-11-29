@@ -1,9 +1,10 @@
 package com.bsi.entrymonitoring.utils
 
-import android.app.AlertDialog
 import android.content.Context
+import android.content.Intent
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
+import android.provider.Settings
 
 class NetworkManager {
     companion object {
@@ -33,16 +34,20 @@ class NetworkManager {
          * @param context The application context.
          */
         fun showNetworkErrorDialog(context: Context) {
-            val builder = AlertDialog.Builder(context)
-            builder.setTitle("Network Error")
-                .setMessage("No internet connection detected. Please check your network and try again.")
-                .setCancelable(false)
-                .setPositiveButton("Close App") { _, _ ->
+            AlertDialogManager.showErrorDialog(
+                context,
+                "Network Error",
+                "No internet connection detected. Please check your network and try again.",
+                positiveButtonText = "Close App",
+                negativeButtonText = "Go to Wi-Fi settings",
+                onPositiveClick = {
                     (context as? android.app.Activity)?.finish()
+                },
+                onNegativeClick = {
+                    val intent = Intent(Settings.ACTION_WIFI_SETTINGS)
+                    context.startActivity(intent)
                 }
-
-            val dialog = builder.create()
-            dialog.show()
+            )
         }
     }
 }

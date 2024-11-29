@@ -19,7 +19,9 @@ import retrofit2.Callback
 import retrofit2.Response
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.provider.Settings
 import android.util.Base64
+import com.bsi.entrymonitoring.utils.AlertDialogManager
 
 class EntryActivity : AppCompatActivity() {
     private lateinit var mqttClientManager: MqttClientManager
@@ -31,10 +33,6 @@ class EntryActivity : AppCompatActivity() {
         enableEdgeToEdge()
 
         setContentView(R.layout.activity_entry)
-
-        if (!NetworkManager.isNetworkAvailable(this)) {
-            NetworkManager.showNetworkErrorDialog(this)
-        }
 
         val logoImageView = findViewById<ImageView>(R.id.logo_bumisuksesindo)
 
@@ -50,8 +48,13 @@ class EntryActivity : AppCompatActivity() {
                 if (clickCount == 5) {
                     clickCount = 0
                     startTime = 0
-                    startActivity(Intent(this, LoginActivity::class.java))
-                    finish()
+
+                    if (!NetworkManager.isNetworkAvailable(this)) {
+                        NetworkManager.showNetworkErrorDialog(this)
+                    }else{
+                        startActivity(Intent(this, LoginActivity::class.java))
+                        finish()
+                    }
                 }
             } else {
                 clickCount = 1
@@ -69,6 +72,11 @@ class EntryActivity : AppCompatActivity() {
 
         val labelDoorID = findViewById<TextView>(R.id.door_id)
         labelDoorID.text = doorID
+
+        if (!NetworkManager.isNetworkAvailable(this)) {
+            NetworkManager.showNetworkErrorDialog(this)
+            return
+        }
 
         val activityTitle = findViewById<TextView>(R.id.activity_title)
         val bodyTitle = findViewById<TextView>(R.id.body_title)
@@ -103,9 +111,16 @@ class EntryActivity : AppCompatActivity() {
                 )
             },
             onFailure = { error ->
-                runOnUiThread {
-                    Toast.makeText(this, "Connection failed: ${error.message}", Toast.LENGTH_SHORT).show()
-                }
+                val message = error.message
+                AlertDialogManager.showErrorDialog(this,
+                    title = "Connection Failed",
+                    message ="$message",
+                    positiveButtonText = "Go To Configuration Setting",
+                    onPositiveClick = {
+                        this.startActivity(Intent(this, LoginActivity::class.java))
+                        finish()
+                    }
+                )
             }
         )
 
